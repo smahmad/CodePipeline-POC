@@ -1,0 +1,33 @@
+Parameters:
+  envPrefixCommon:
+    Type: String
+    Default: 'prod'
+    AllowedValues:
+      - alpha
+      - delta
+      - stage
+      - prod
+      - loadtest
+      - sandbox
+    Description: Common prefix for the Environment you want to create
+    Type: String
+    Default: 'commonapp.net'
+    AllowedValues:
+      - devca.net
+      - commonapp.net
+      - commonapp.org
+    Description: Top Level Domain for Environment
+  envYear:
+    Type: String
+    Default: '18'
+    AllowedValues:
+      - 17
+      - 18
+      - 19
+      - 20
+    Description: '2 Digit year of the environment'
+Resources:
+  AccountRolloverBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+        BucketName: !Sub ca.${envPrefixCommon}${envYear}.account-rollover 
