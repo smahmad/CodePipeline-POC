@@ -31,3 +31,8 @@ Resources:
     Type: AWS::S3::Bucket
     Properties:
         BucketName: !Sub ca.${envPrefixCommon}${envYear}.account-rollover 
+
+  PartnerBuckets:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub ca.${envPrefixCommon}${envYear}.partners
