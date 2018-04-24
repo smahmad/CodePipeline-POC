@@ -37,7 +37,9 @@ Resources:
     Properties:
       BucketName: !Sub ca.${envPrefixCommon}${envYear}.partners
 
-  PDFPreviewBucket:
+  PARAMBucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: !Sub ca.${envPrefixCommon}${envYear}.pdf-preview
+      BucketName: !Sub ca.${envPrefixCommon}${envYear}.${ParamBucketName}
+      
+  
