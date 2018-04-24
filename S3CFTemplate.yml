@@ -49,6 +49,4 @@ Resources:
   PARAMBucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: !Sub ca.${envPrefixCommon}${envYear}.ParamBucket
-      
-  
+      BucketName: !Sub ca.${envPrefixCommon}${envYear}.${paramBucketName}
