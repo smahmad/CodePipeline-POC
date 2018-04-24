@@ -1,10 +1,5 @@
 {
   "Parameters" : {
     "ParamBucketName" : "ParamBucket",
-    "DBName" : "TestWordPressDB",
-    "DBPassword" : "masterfile1",
-    "DBRootPassword" : "masterfile1",
-    "DBUser" : "TestDBuser",    
-    "KeyName" : "Linux_SSH_Key"
   }
 }
