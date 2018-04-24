@@ -26,6 +26,15 @@ Parameters:
       - 19
       - 20
     Description: '2 Digit year of the environment'
+  ParamBucketName:
+    AllowedPattern: '[a-zA-Z][a-zA-Z0-9]*'
+    ConstraintDescription: must begin with a letter and contain only alphanumeric characters.
+    Description: The Name od the Parambucket to test
+    MaxLength: '16'
+    MinLength: '1'
+    NoEcho: 'true'
+    Type: String
+    
 Resources:
   AccountRolloverBucket:
     Type: AWS::S3::Bucket
@@ -40,6 +49,6 @@ Resources:
   PARAMBucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: !Sub ca.${envPrefixCommon}${envYear}.${ParamBucketName}
+      BucketName: !Sub ca.${envPrefixCommon}${envYear}.ParamBucket
       
   
