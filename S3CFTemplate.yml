@@ -10,6 +10,7 @@ Parameters:
       - loadtest
       - sandbox
       - playpen
+      - test-playpen
     Description: Common prefix for the Environment you want to create
   cidrBlock:
     Type: String

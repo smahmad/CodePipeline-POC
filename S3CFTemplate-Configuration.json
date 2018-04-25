@@ -1,8 +1,8 @@
 {
   "Parameters" : {
-	"envPrefixCommon": "MY",
+	"envPrefixCommon": "test-playpen",
 	"cidrBlock": "10.7",
 	"envRegionLabel": "mahmood",
-	"commonDomain": "hello.net"
+	"commonDomain": "commonapp.net"
   }
 }
