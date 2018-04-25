@@ -1,5 +1,8 @@
 {
   "Parameters" : {
-    "paramBucketName" : "param3bucket"
+	"envPrefixCommon": "MY",
+	"cidrBlock": "10.7",
+	"envRegionLabel": "mahmood",
+	"commonDomain": "hello.net"
   }
 }

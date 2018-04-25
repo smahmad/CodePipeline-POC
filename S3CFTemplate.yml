@@ -1,7 +1,7 @@
 Parameters:
   envPrefixCommon:
     Type: String
-    Default: 'prod'
+    Default: 'playpen'
     AllowedValues:
       - alpha
       - delta
@@ -9,7 +9,17 @@ Parameters:
       - prod
       - loadtest
       - sandbox
+      - playpen
     Description: Common prefix for the Environment you want to create
+  cidrBlock:
+    Type: String
+    Default: 10.3
+    Description: Preferred cidr for VPC
+  envRegionLabel:
+    Type: String
+    Default: poc
+    Description: Region name prefix for security groups
+  commonDomain:
     Type: String
     Default: 'commonapp.net'
     AllowedValues:
@@ -17,36 +27,9 @@ Parameters:
       - commonapp.net
       - commonapp.org
     Description: Top Level Domain for Environment
-  envYear:
-    Type: String
-    Default: '18'
-    AllowedValues:
-      - 17
-      - 18
-      - 19
-      - 20
-    Description: '2 Digit year of the environment'
-  paramBucketName:
-    AllowedPattern: '[a-zA-Z][a-zA-Z0-9]*'
-    ConstraintDescription: must begin with a letter and contain only alphanumeric characters.
-    Description: The Name of the Parambucket to test
-    MaxLength: '16'
-    MinLength: '1'
-    NoEcho: 'true'
-    Type: String
     
 Resources:
-  AccountRolloverBucket:
-    Type: AWS::S3::Bucket
-    Properties:
-        BucketName: !Sub ca.${envPrefixCommon}${envYear}.account-rollover 
-
-  PartnerBuckets:
-    Type: AWS::S3::Bucket
-    Properties:
-      BucketName: !Sub ca.${envPrefixCommon}${envYear}.partners
-
   PARAMBucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: !Sub ca.${envPrefixCommon}${envYear}.${paramBucketName}
+      BucketName: !Sub ca.${envPrefixCommon}${cidrBlock}.${envRegionLabel}.${commonDomain}
