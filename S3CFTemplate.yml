@@ -20,6 +20,7 @@ Parameters:
     Type: String
     Default: poc
     Description: Region name prefix for security groups
+    NoEcho: 'true'
   commonDomain:
     Type: String
     Default: 'commonapp.net'
